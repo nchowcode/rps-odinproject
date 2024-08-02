@@ -21,9 +21,8 @@ function getHumanChoice(){
     }
 } 
 
-function playRound(humanChoice, computerChoice){            //return value needs to be score
+function playRound(humanChoice, computerChoice){            
 
-    let score = {user: 0, comp: 0};
     const winConditions = {
         'rock': 'scissors',
         'paper': 'rock',
@@ -32,23 +31,29 @@ function playRound(humanChoice, computerChoice){            //return value needs
 
     if(humanChoice === computerChoice){
         console.log("It's a tie!");
-        return score;
+        return 'tie';
     }
 
     else{
         if (winConditions[humanChoice] === computerChoice){
             console.log(`You Win! ${humanChoice} beats ${computerChoice}`); 
-            score.user += 1;
-            return score;
+            return 'win';
         }
         else {
             console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-            score.comp += 1;
-            return score;
+            return 'loss';
         }
     }
 }
 
+function playGame(){
+
+    for (let i = 0; i < 5; i++){
+        let comp = getComputerChoice();
+        let user = getHumanChoice();
+        playRound(user, comp)
+    }
+}
 let comp = getComputerChoice();
 let user = getHumanChoice();
 console.log(`Computer: ${comp}`);
