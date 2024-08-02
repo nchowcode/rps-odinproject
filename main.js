@@ -47,15 +47,34 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(){
-
+    let score = { user: 0, comp: 0, tie: 0 };
     for (let i = 0; i < 5; i++){
         let comp = getComputerChoice();
         let user = getHumanChoice();
-        playRound(user, comp)
+        let result = playRound(user, comp)
+
+        switch (result) {
+            case 'win':
+                score.user += 1;
+                break;
+            case 'loss':
+                score.comp += 1;
+                break;
+            case 'tie':
+                score.tie += 1;
+                break;
+            default:
+                console.log("Unexpected result:", result);
+        }
+    }
+    console.log(`Score - You: ${score.user}, Computer: ${score.comp}, Ties: ${score.tie}`);
+    if (score.user > score.comp) {
+        alert('You win the game!');
+    } else if (score.user === score.comp){
+        alert('It\'s a tie game!');
+    } else {
+        alert('You lost the game!');
     }
 }
-let comp = getComputerChoice();
-let user = getHumanChoice();
-console.log(`Computer: ${comp}`);
-console.log(`User: ${user}`);
-console.log(playRound(user, comp).comp);
+
+playGame();
