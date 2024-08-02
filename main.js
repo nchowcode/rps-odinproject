@@ -1,4 +1,8 @@
 function getComputerChoice(){
     let choices = ['rock', 'paper', 'scissors'];
-    // choices[math.random(0, choices.length())]
+    let option = choices[Math.floor(Math.random() * choices.length)];
+    return option;
+    
 }
+
+console.log(getComputerChoice());
