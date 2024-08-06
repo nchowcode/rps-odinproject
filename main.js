@@ -75,5 +75,10 @@ function playGame(){
     }
 }
 
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissor = document.createElement("button");
+
+
 // playGame();
 
