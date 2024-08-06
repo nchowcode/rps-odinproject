@@ -48,24 +48,22 @@ function playRound(humanChoice, computerChoice){
 
 function playGame(){
     let score = { user: 0, comp: 0, tie: 0 };
-    for (let i = 0; i < 5; i++){
-        let comp = getComputerChoice();
-        let user = getHumanChoice();
-        let result = playRound(user, comp)
+    let comp = getComputerChoice();
+    let user = getHumanChoice();
+    let result = playRound(user, comp)
 
-        switch (result) {
-            case 'win':
-                score.user += 1;
-                break;
-            case 'loss':
-                score.comp += 1;
-                break;
-            case 'tie':
-                score.tie += 1;
-                break;
-            default:
-                console.log("Unexpected result:", result);
-        }
+    switch (result) {
+        case 'win':
+            score.user += 1;
+            break;
+        case 'loss':
+            score.comp += 1;
+            break;
+        case 'tie':
+            score.tie += 1;
+            break;
+        default:
+            console.log("Unexpected result:", result);
     }
     console.log(`Score - You: ${score.user}, Computer: ${score.comp}, Ties: ${score.tie}`);
     if (score.user > score.comp) {
@@ -77,4 +75,5 @@ function playGame(){
     }
 }
 
-playGame();
+// playGame();
+
